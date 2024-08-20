@@ -1,52 +1,59 @@
 Diabetes Prediction
-Overview
-This repository contains the complete project files for predicting diabetes using machine learning. The project is aimed at early detection and management of diabetes, which is crucial in preventing complications and improving the quality of life for individuals at risk. The model is deployed using a user-friendly Streamlit application, enabling real-time predictions.
+This repository contains a comprehensive project for predicting diabetes using machine learning. The project includes a detailed report, a Streamlit application for user interaction, and code for data preprocessing and model training.
 
-Project Structure
-The repository includes the following files and directories:
+Contents
+The zip file contains the following files and directories:
 
-Diabetes_Prediction_Project_Report.pdf: Detailed project report covering the entire development process, from data exploration to model deployment.
-User_Guide_for_Streamlit_App.pdf: A guide for users to navigate and use the Streamlit application for diabetes prediction.
-Data_Preprocessing_and_Model_Training.ipynb: Jupyter Notebook for data exploration, preprocessing, feature selection, and model training.
-Diabetes_Prediction_Streamlit_App.py: The Streamlit application that deploys the trained machine learning model for real-time predictions.
-Datasets/: Directory containing the datasets used for training and testing the model.
-Diabetes_Prediction.pkl: Trained Random Forest model saved as a pickle file for deployment.
-Project Description
+Project Report (Diabetes_Prediction_Project_Report.pdf): A detailed report describing the project, including dataset description, data preprocessing, model building, evaluation, and deployment.
+
+User Guide (UserGuide_Streamlit_App.pdf): Instructions for using the Streamlit web application that allows users to interact with the machine learning model.
+
+Data Preprocessing & Model Training Notebook (Data_Preprocessing_Model_Training.ipynb): A Jupyter notebook outlining the steps for data preprocessing, model training, and evaluation.
+
+Streamlit Application (Diabetes_Prediction.py): The Python script for the Streamlit web application that provides a user interface for predicting diabetes.
+
+Datasets: Includes the raw dataset used for model training and evaluation.
+
+Trained Model (Diabetes_Prediction.pkl): The saved Random Forest model used for making predictions in the Streamlit application.
+
+Project Overview
 1. Introduction
-Diabetes is a chronic condition that affects millions globally. This project aims to develop a machine learning model that can predict whether an individual is diabetic based on various health attributes.
+Diabetes is a chronic disease impacting millions globally. This project focuses on developing a machine learning model to predict diabetes based on health-related attributes. The project involves data exploration, preprocessing, model training, and deployment through a Streamlit application.
 
 2. Dataset Description
-The dataset consists of 100,000 records with 9 features, including both numerical and categorical variables. The target variable indicates whether an individual is diabetic (1) or not (0).
-
+Source and Content: The dataset contains 100,000 records with 9 features, including both numerical and categorical variables. The target variable indicates whether an individual has diabetes (1) or not (0).
+Features:
+gender: Categorical (Male, Female)
+age: Numerical (Years)
+hypertension: Binary (0 = No, 1 = Yes)
+heart_disease: Binary (0 = No, 1 = Yes)
+smoking_history: Categorical (e.g., never, current, formerly, No Info, ever, not current)
+bmi: Numerical (Body Mass Index)
+HbA1c_level: Numerical (Hemoglobin A1c Level)
+blood_glucose_level: Numerical (Blood Glucose Level)
+diabetes: Binary (Target variable, 0 = No, 1 = Yes)
 3. Data Exploration and Preprocessing
-Data Exploration: The dataset was inspected for structure, types of variables, and missing values. Summary statistics were generated to understand the distribution of numerical variables.
-Data Preprocessing: Involves categorical encoding, feature scaling, and saving the preprocessed data for model training.
+Data Exploration: Initial inspection and summary statistics were generated to understand the dataset.
+Preprocessing:
+Categorical Encoding: Encoded categorical variables.
+Feature Scaling: Scaled numerical features using StandardScaler.
+Saved Data: Preprocessed data saved as a CSV file.
 4. Feature Selection
-Feature selection was performed using correlation analysis, feature importance from the Random Forest model, and a variance threshold method. All features were retained as they contributed to the model's predictive power.
-
+Correlation Analysis: Identified features with strong relationships to the target variable.
+Feature Importance: Used Random Forest to rank features based on importance.
+Variance Threshold: Considered but all features were retained.
 5. Model Building and Evaluation
-Model Selection: A Random Forest classifier was chosen for its robustness and effectiveness.
-Class Imbalance Handling: SMOTE was used to balance the training set, addressing the class imbalance.
-Model Evaluation: The model was evaluated using accuracy, precision, recall, F1-score, and a confusion matrix. The decision threshold was adjusted to improve recall for diabetic cases.
-Final Model: The trained model was saved as a .pkl file for deployment.
-6. Model Deployment Using Streamlit
-The trained model was deployed using a Streamlit application, allowing users to input data and receive real-time predictions. The application is designed to be intuitive and easy to use.
-
-How to Run the Project
-1. Set Up the Environment
-Ensure that you have Python installed along with the required libraries:
-
-pip install -r requirements.txt
-
-2. Run the Streamlit Application
-Navigate to the directory containing the Streamlit app file and run the following command:
-
-streamlit run Diabetes_Prediction_Streamlit_App.py
-
-This will launch the application in your default web browser.
-
-3. Use the Application
-Follow the User Guide provided in the repository to interact with the application and make predictions based on your input data.
-
-Conclusion
-This project successfully developed a machine learning model for predicting diabetes, with a strong focus on accuracy and user accessibility. Future improvements could focus on enhancing the model's ability to predict diabetic cases more accurately and deploying the application on a cloud platform for broader reach
+Data Preparation: Split dataset into training and testing sets.
+Class Imbalance Handling: Used SMOTE to oversample the minority class.
+Model Training: Random Forest classifier was trained and tuned using GridSearchCV.
+Evaluation: Assessed model performance using accuracy, precision, recall, F1-score, and confusion matrix.
+Threshold Adjustment: Adjusted decision threshold to improve recall for diabetic cases.
+6. Model Deployment using Streamlit
+Setup: Instructions for setting up and running the Streamlit application.
+Application Workflow:
+Import libraries and load the trained model.
+Create a form to capture input features.
+Preprocess input data and make predictions.
+Display predictions in the Streamlit app.
+7. Conclusion
+The project successfully developed and deployed a machine learning model for diabetes prediction. The Random Forest classifier achieved high accuracy, especially for non-diabetic cases. Future work could enhance the model’s prediction of diabetic cases and deploy the application on a cloud platform for broader accessibility.
